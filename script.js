@@ -1,0 +1,1 @@
+const bar = document.getElementById('bar')
