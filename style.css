@@ -41,3 +41,37 @@ background-image: url("img\Model_background.jpg");
 #hero h2{
     color:rgb(170, 102, 102)
 }
+#hero button{
+background-color: transparent;
+color:blueviolet;
+border:0;
+padding:14px 80px 14px 65px
+
+
+}
+
+#feature.fe-box{
+width: 180px;
+text-align:center ;
+padding: 25px 15px;
+box-shadow: 20px 20px 34px 
+
+
+
+}
+.section-p1{
+
+box box-sizing: inherit;
+
+}
+#navbar li a.active{
+    color :aquamarine;
+}
+     padding: 0 80px;
+}
+#hero h4{
+    padding-bottom:  15px;
+}
+#hero h2{
+    color:rgb(170, 102, 102)
+}
