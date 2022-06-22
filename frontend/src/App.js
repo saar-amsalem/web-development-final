@@ -5,7 +5,7 @@ function App() {
   return (
     <div>
       <header>
-        <a href="/">Noa BenSa HaZona</a>
+        <a href="/">Sharmutut BaHam</a>
       </header>
       <main>
         <h1>Featured Bitches</h1>
