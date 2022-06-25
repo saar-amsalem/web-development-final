@@ -7,39 +7,37 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-header{
-  background-color: #404040;
-  padding: 1rem;
-  font-size: 3rem;
+.site-container {
+  min-height: 100vh;
 }
 
-header a{
+header a {
   color: white;
   font-family: cursive;
   font-weight: bold;
   text-decoration: none;
 }
 
-main{
-  padding: 1rem;
+main {
+  flex: 1;
 }
 
-.products{
+.products {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.product{
+.product {
   border: 1px #404040 dotted;
   margin: 1rem;
 }
 
-.product img{
+.product img {
   width: 100%;
   max-width: 340px; /* לשנות לפי הגודל של התמוה המינימלית*/
 }
 
-.product-info{
+.product-info {
   padding: 1rem;
 }
