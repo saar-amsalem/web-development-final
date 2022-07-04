@@ -18,7 +18,7 @@ const data = {
       category: 'bulbul',
       image: '/images/p2.jpg',
       price: 20000000000,
-      countInStock: 1,
+      countInStock: 0,
       brand: 'Pimp',
       rating: 1.5,
       numReviews: 10000000000000,
