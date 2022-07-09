@@ -1,7 +1,7 @@
 const data = {
   products: [
     {
-      _id: '1',
+      // _id: '1',
       name: 'Noa BenSa HaZona',
       slug: 'noa-bensa-hazona',
       category: 'Vegaina',
@@ -14,7 +14,7 @@ const data = {
       description: 'זונה מבית טוב',
     },
     {
-      _id: '2',
+      // _id: '2',
       name: 'MatanGa HaZayan',
       slug: 'matanga-hazayan',
       category: 'bulbul',
@@ -27,7 +27,7 @@ const data = {
       description: 'מלא בדיכאון וכל טוב',
     },
     {
-      _id: '3',
+      // _id: '3',
       name: 'Almogiii Sara Da Virgin',
       slug: 'almogii-sara',
       category: 'Vegaina',
@@ -40,7 +40,7 @@ const data = {
       description: 'מחפשת בותל להיום בערב דחוף!!!!!!!',
     },
     {
-      _id: '4',
+      // _id: '4',
       name: 'Shanin Yamin Lo Smol',
       slug: 'shani-lo-smol',
       category: 'Vegaina',
