@@ -36,7 +36,7 @@ export default function SigninScreen() {
   };
 
   useEffect(() => {
-    if (state.userInfo) {
+    if (userInfo) {
       navigate(redirect);
     }
   }, [navigate, redirect, userInfo]);
