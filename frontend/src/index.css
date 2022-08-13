@@ -11,6 +11,10 @@ body {
   min-height: 100vh;
 }
 
+.color-nav {
+  background-color: #9b53ab;
+}
+
 header a {
   color: white;
   font-family: cursive;
