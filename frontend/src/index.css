@@ -19,9 +19,9 @@ body {
   transition: height 0.5s;
 }
 
-.color-nav:hover {
+/* .color-nav:hover {
   height: 70px;
-}
+} */
 
 header a {
   color: white;
