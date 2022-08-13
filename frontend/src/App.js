@@ -26,6 +26,9 @@ import { getError } from './utils';
 import Button from 'react-bootstrap/esm/Button';
 import SearchBox from './components/SearchBox';
 import SearchScreen from './screens/SearchScreen';
+import ProtectedRoute from './components/ProtetctedRoute';
+import DashboardScreen from './screens/DashboardScreen';
+import AdminRoute from './components/AdminRoute';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -54,6 +57,42 @@ function App() {
     fetchCategories();
   }, []);
 
+  window.onload = function () {
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    canvas.x = 0;
+    canvas.y = 0;
+
+    var w = 25,
+      h = 25;
+
+    context.strokeStyle = '#000000';
+    context.strokeWeight = 3;
+    context.shadowOffsetX = 4.0;
+    context.shadowOffsetY = 4.0;
+    context.lineWidth = 4.0;
+    context.fillStyle = '#54266f';
+    var d = Math.min(w, h);
+    var k = 10;
+
+    context.moveTo(k, k + d / 4);
+    context.quadraticCurveTo(k, k, k + d / 4, k);
+    context.quadraticCurveTo(k + d / 2, k, k + d / 2, k + d / 4);
+    context.quadraticCurveTo(k + d / 2, k, k + (d * 3) / 4, k);
+    context.quadraticCurveTo(k + d, k, k + d, k + d / 4);
+    context.quadraticCurveTo(
+      k + d,
+      k + d / 2,
+      k + (d * 3) / 4,
+      k + (d * 3) / 4
+    );
+    context.lineTo(k + d / 2, k + d);
+    context.lineTo(k + d / 4, k + (d * 3) / 4);
+    context.quadraticCurveTo(k, k + d / 2, k, k + d / 4);
+    context.stroke();
+    context.fill();
+  };
+
   return (
     <BrowserRouter>
       <div
@@ -75,7 +114,16 @@ function App() {
                 <i className="fas fa-bars"></i>
               </Button>
               <LinkContainer to="/">
-                <Navbar.Brand>Sharmutut BaHam</Navbar.Brand>
+                <Navbar.Brand>
+                  <canvas
+                    id="canvas"
+                    width="40"
+                    height="40"
+                    x="0"
+                    y="0"
+                  ></canvas>
+                  Sharmutut BaHam
+                </Navbar.Brand>
               </LinkContainer>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
@@ -111,6 +159,22 @@ function App() {
                       Sign In
                     </Link>
                   )}
+                  {userInfo && userInfo.isAdmin && (
+                    <NavDropdown title="Admin" id="admin-nav-dropdown">
+                      <LinkContainer to="/admin/dashboard">
+                        <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/admin/productlist">
+                        <NavDropdown.Item>Products</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/admin/orderlist">
+                        <NavDropdown.Item>Orders</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/admin/userlist">
+                        <NavDropdown.Item>Users</NavDropdown.Item>
+                      </LinkContainer>
+                    </NavDropdown>
+                  )}
                 </Nav>
               </Navbar.Collapse>
             </Container>
@@ -143,17 +207,49 @@ function App() {
           <Container className="mt-3">
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
-              <Route path="/" element={<HomeScreen />} />
               <Route path="/cart" element={<CartScreen />} />
               <Route path="/signin" element={<Signinscreen />} />
               <Route path="/shipping" element={<ShippingAddressScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
-              <Route path="/profile" element={<ProfileScreen />} />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <ProfileScreen />
+                  </ProtectedRoute>
+                }
+              />
               <Route path="/payment" element={<PaymentMethodScreen />} />
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
-              <Route path="/order/:id" element={<OrderScreen />} />
-              <Route path="/orderhistory" element={<OrderHistoryScreen />} />
+              <Route
+                path="/order/:id"
+                element={
+                  <ProtectedRoute>
+                    <OrderScreen />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/orderhistory"
+                element={
+                  <ProtectedRoute>
+                    <OrderHistoryScreen />
+                  </ProtectedRoute>
+                }
+              />
               <Route path="/search" element={<SearchScreen />} />
+
+              {/* Admin Routes */}
+              <Route
+                path="/admin/dashboard"
+                element={
+                  <AdminRoute>
+                    <DashboardScreen />
+                  </AdminRoute>
+                }
+              />
+
+              <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>
         </main>
