@@ -1,0 +1,21 @@
+{
+  "name": "shar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd backend && npm install --force  && cd ../frontend && npm install --force && npm run build",
+    "start": "node backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ma77an/Final_Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ma77an/Final_Project/issues"
+  },
+  "homepage": "https://github.com/Ma77an/Final_Project#readme"
+}
