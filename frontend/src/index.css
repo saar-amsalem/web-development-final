@@ -11,9 +11,27 @@ body {
   min-height: 100vh;
 }
 
+.btn-primary {
+  background-color: #54265e;
+  border-color: #54265e;
+  color: #fff;
+}
+
+.btn-outline-primary {
+  color: #54265e;
+  border-color: #54265e;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-outline-primary:hover {
+  background-color: #d7a5e3;
+  border-color: #54265e;
+}
+
 .color-nav {
   background-color: #9b53ab;
-  height: 40px;
+  height: 50px;
   text-shadow: 2px 3px 3px rgb(83, 50, 83), 0 0 1em rgb(183, 0, 255),
     0 0 0.2em rgb(200, 0, 255);
   transition: height 0.5s;
@@ -74,4 +92,27 @@ main {
 .checkout-steps > div.active {
   border-bottom: 0.2rem solid #d66bee;
   color: #d66bee;
+}
+
+/* sidebar */
+.navbar-brand {
+  font-weight: bold;
+}
+.side-navbar {
+  width: 240px;
+  height: 100%;
+  position: absolute;
+  left: -300px;
+  background-color: #100901;
+  transition: 0.5s;
+}
+
+.site-container {
+  transition: 0.4s;
+}
+.active-cont {
+  margin-left: 240px;
+}
+.active-nav {
+  left: 0;
 }
