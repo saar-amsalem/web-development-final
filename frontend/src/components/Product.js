@@ -30,7 +30,7 @@ function Product(props) {
   };
 
   return (
-    <Card>
+    <Card style={{ minHeight: '480px' }}>
       <Link to={`/product/${product.slug}`}>
         <img src={product.image} className="card-img-top" alt={product.name} />
       </Link>
@@ -46,7 +46,7 @@ function Product(props) {
           </Button>
         ) : (
           <Button
-            className="btn-primary"
+            className="btn-primary "
             onClick={() => addToCartHandler(product)}
           >
             Add To Cart

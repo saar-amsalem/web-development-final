@@ -31,14 +31,10 @@ body {
 
 .color-nav {
   background-color: #9b53ab;
-  height: 50px;
+  /* height: 50px; */
   text-shadow: 2px 3px 3px rgb(83, 50, 83), 0 0 1em rgb(183, 0, 255),
     0 0 0.2em rgb(200, 0, 255);
   transition: height 0.5s;
-}
-
-.color-nav:hover {
-  height: 70px;
 }
 
 header a {
@@ -119,4 +115,12 @@ main {
 
 .text-bold {
   font-weight: bold;
+}
+
+.card {
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
 }
