@@ -13,6 +13,7 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { getError } from '../utils';
 import { Store } from '../Store';
+import { FacebookShareButton, FacebookIcon } from 'react-share';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -94,6 +95,15 @@ function ProductScreen() {
             </ListGroup.Item>
             <ListGroup.Item>Price: ₪{product.price}</ListGroup.Item>
             <ListGroup.Item>{product.description}</ListGroup.Item>
+            <ListGroup.Item>
+              <FacebookShareButton
+                quote={'I just bought ' + product.name}
+                url={`http://sharm-mern.herokuapp.com/product/${product.slug}`}
+                hashtag={`#${product.slug}`}
+              >
+                <FacebookIcon size={36} round={true} />
+              </FacebookShareButton>
+            </ListGroup.Item>
           </ListGroup>
         </Col>
         <Col md={3}>
