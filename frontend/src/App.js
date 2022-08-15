@@ -135,6 +135,7 @@ function App() {
                   Sharmutut BaHam
                 </Navbar.Brand>
               </LinkContainer>
+
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <SearchBox />
@@ -211,6 +212,10 @@ function App() {
                 </LinkContainer>
               </Nav.Item>
             ))}
+            <video height="80" height="120" controls autoPlay loop>
+              <source src="/video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </Nav>
         </div>
         <main>
