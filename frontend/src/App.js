@@ -212,7 +212,7 @@ function App() {
                 </LinkContainer>
               </Nav.Item>
             ))}
-            <video height="80" height="120" controls autoPlay loop>
+            <video height="120" controls autoPlay loop>
               <source src="/video.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
