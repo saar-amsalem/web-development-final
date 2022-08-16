@@ -93,6 +93,7 @@ main {
 /* sidebar */
 .navbar-brand {
   font-weight: bold;
+  font-size: 1.75rem;
 }
 .side-navbar {
   width: 240px;

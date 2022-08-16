@@ -132,7 +132,7 @@ function App() {
                     x="0"
                     y="0"
                   ></canvas>
-                  Sharmutut BaHam
+                  Sharm Sports
                 </Navbar.Brand>
               </LinkContainer>
 
@@ -317,7 +317,10 @@ function App() {
           </Container>
         </main>
         <footer>
-          <div className="text-center">All rights reserved</div>
+          <div className="text-center">
+            SHARM SPORTS - A Sports Wear online Shop created by MATAN, Almog,
+            Ido, Noa and Shani
+          </div>
         </footer>
       </div>
     </BrowserRouter>

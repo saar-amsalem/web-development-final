@@ -14,6 +14,7 @@ import MessageBox from '../components/MessageBox';
 import { getError } from '../utils';
 import { Store } from '../Store';
 import { FacebookShareButton, FacebookIcon } from 'react-share';
+import RecommendedProduct from '../components/RecommendedProduct';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -103,6 +104,9 @@ function ProductScreen() {
               >
                 <FacebookIcon size={36} round={true} />
               </FacebookShareButton>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <RecommendedProduct>{product}</RecommendedProduct>
             </ListGroup.Item>
           </ListGroup>
         </Col>
