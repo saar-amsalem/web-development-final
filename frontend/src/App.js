@@ -124,7 +124,7 @@ function App() {
                 <i className="fas fa-bars"></i>
               </Button>
               <LinkContainer to="/">
-                <Navbar.Brand>
+                <Navbar.Brand id="Logo">
                   <canvas
                     id="canvas"
                     width="40"
@@ -318,7 +318,7 @@ function App() {
         </main>
         <footer>
           <div className="text-center">
-            SHARM SPORTS - A Sports Wear online Shop created by MATAN, Almog,
+            SHARM SPORTS - A Sports Wear online Shop created by Matan, Almog,
             Ido, Noa and Shani
           </div>
         </footer>
