@@ -35,6 +35,8 @@ import OrderListScreen from './screens/OrderListScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import MapScreen from './screens/MapScreen';
+import SupportScreen from './screens/SupportScreen';
+import ChatBox from './components/ChatBox';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -184,6 +186,9 @@ function App() {
                       <LinkContainer to="/admin/users">
                         <NavDropdown.Item>Users</NavDropdown.Item>
                       </LinkContainer>
+                      <LinkContainer to="/admin/support">
+                        <NavDropdown.Item>Support</NavDropdown.Item>
+                      </LinkContainer>
                     </NavDropdown>
                   )}
                 </Nav>
@@ -311,12 +316,21 @@ function App() {
                   </AdminRoute>
                 }
               />
+              <Route
+                path="/admin/support"
+                element={
+                  <AdminRoute>
+                    <SupportScreen />
+                  </AdminRoute>
+                }
+              />
 
               <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>
         </main>
         <footer>
+          {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
           <div className="text-center">
             SHARM SPORTS - A Sports Wear online Shop created by Matan, Almog,
             Ido, Noa and Shani
