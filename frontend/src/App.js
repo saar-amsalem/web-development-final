@@ -65,6 +65,20 @@ function App() {
     fetchCategories();
   }, []);
 
+  const [data, setData] = useState({});
+  const [location, setLocation] = useState('');
+
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=f4d39e1dce87645a615f46573e45bf34`;
+  const searchLocation = (event) => {
+    if (event.key === 'Enter' || event.key === 'click') {
+      axios.get(url).then((response) => {
+        setData(response.data);
+        console.log(response.data);
+      });
+      setLocation('');
+    }
+  };
+
   window.onload = function () {
     var canvas = document.getElementById('canvas');
     var context = canvas.getContext('2d');
@@ -221,7 +235,23 @@ function App() {
               <source src="/video.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+            <input
+              value={location}
+              onChange={(event) => setLocation(event.target.value)}
+              onKeyPress={searchLocation}
+              onMouseEnter={searchLocation}
+              placeholder="Enter Your Location"
+              type="text"
+            />
           </Nav>
+          {data.main ? (
+            <h3>
+              The Tempeture in the location you have entered is:{' '}
+              {((data.main.temp.toFixed() - 32) / 1.8).toFixed()}°C
+            </h3>
+          ) : (
+            'city not found'
+          )}
         </div>
         <main>
           <Container className="mt-3">
