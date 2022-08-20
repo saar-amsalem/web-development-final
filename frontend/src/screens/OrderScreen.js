@@ -214,12 +214,24 @@ export default function OrderScreen() {
                 &nbsp;
                 {order.shippingAddress.location &&
                   order.shippingAddress.location.lat && (
-                    <a
-                      target="_new"
-                      href={`https://maps.google.com?q=${order.shippingAddress.location.lat},${order.shippingAddress.location.lng}`}
-                    >
-                      Show On Map
-                    </a>
+                    // <a
+                    //   target="_new"
+                    //   href={`https://maps.google.com?q=${order.shippingAddress.location.lat},${order.shippingAddress.location.lng}`}
+                    // >
+                    //   Show On Map
+                    // </a>
+                    <div>
+                      <iframe
+                        src={
+                          'https://maps.google.com?q=' +
+                          order.shippingAddress.location.lat +
+                          ',' +
+                          order.shippingAddress.location.lng +
+                          '&output=embed'
+                        }
+                        title="Map Location From DataBase"
+                      ></iframe>
+                    </div>
                   )}
               </Card.Text>
               {order.isDelivered ? (
