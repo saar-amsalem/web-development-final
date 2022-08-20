@@ -124,7 +124,19 @@ export default function SupportScreen() {
             .map((user) => (
               <li
                 key={user._id}
-                className={user._id === selectedUser._id ? '  selected' : '  '}
+                className={
+                  user._id === selectedUser._id
+                    ? user.unread
+                      ? 'selected unread'
+                      : user.online
+                      ? 'selected online'
+                      : 'selected offline'
+                    : user.unread
+                    ? 'unread'
+                    : user.online
+                    ? 'online'
+                    : 'offline'
+                }
               >
                 <button
                   className="block"

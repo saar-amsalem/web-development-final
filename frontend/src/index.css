@@ -228,20 +228,22 @@ main {
   margin-bottom: 1rem;
 }
 
-.support-users span {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
+.support-users li::marker {
+  content: '•';
+  font-size: 3rem;
+  /* width: 1rem;
+  height: 1rem; */
+  /* border-radius: 50%;
   position: absolute;
-  margin-left: -25px;
-  margin-top: 10px;
+  margin-left: -70px;
+  margin-top: 8px; */
 }
-.support-users .offline {
-  background-color: #808080;
+li.offline::marker {
+  color: #808080;
 }
-.support-users .online {
-  background-color: #20a020;
+li.online::marker {
+  color: #20a020;
 }
-.support-users .unread {
-  background-color: #f02020;
+li.unread::marker {
+  color: #f02020;
 }

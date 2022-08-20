@@ -75,7 +75,7 @@ function ProductScreen() {
   ) : error ? (
     <MessageBox variant="danger">{error}</MessageBox>
   ) : (
-    <div>
+    <section>
       <Row>
         <Col md={6}>
           <img className="img-large" src={product.image} alt={product.name} />
@@ -146,7 +146,7 @@ function ProductScreen() {
           </Card>
         </Col>
       </Row>
-    </div>
+    </section>
   );
 }
 
