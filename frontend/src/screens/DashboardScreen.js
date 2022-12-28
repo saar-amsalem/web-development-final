@@ -8,6 +8,7 @@ import MessageBox from '../components/MessageBox';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import { useNavigate } from 'react-router-dom';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -32,6 +33,7 @@ export default function DashboardScreen() {
   });
   const { state } = useContext(Store);
   const { userInfo } = state;
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -62,7 +64,7 @@ export default function DashboardScreen() {
           <Row>
             <Col md={4}>
               <Card>
-                <Card.Body>
+                <Card.Body onClick={()=>{navigate('/admin/users')}}>
                   <Card.Title>
                     {summary.users && summary.users[0]
                       ? summary.users[0].numUsers
@@ -74,7 +76,7 @@ export default function DashboardScreen() {
             </Col>
             <Col md={4}>
               <Card>
-                <Card.Body>
+                <Card.Body onClick={()=>{navigate('/admin/orders')}}>
                   <Card.Title>
                     {summary.orders && summary.users[0]
                       ? summary.orders[0].numOrders
@@ -93,7 +95,7 @@ export default function DashboardScreen() {
                       ? summary.orders[0].totalSales.toFixed(2)
                       : 0}
                   </Card.Title>
-                  <Card.Text> Orders</Card.Text>
+                  <Card.Text> Total Sales</Card.Text>
                 </Card.Body>
               </Card>
             </Col>

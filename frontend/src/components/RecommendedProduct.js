@@ -63,7 +63,7 @@ const RecommendedProduct = (Productt) => {
           </Card.Body>
         </Card>
       ) : (
-        <div>Cant Recommand</div>
+        <div>Cant Recommend</div>
       )}
     </div>
   );

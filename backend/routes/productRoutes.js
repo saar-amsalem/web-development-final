@@ -10,6 +10,15 @@ productRouter.get('/', async (req, res) => {
   res.send(products);
 });
 
+productRouter.post("/save",async (req,res)=> {
+  console.log(req.body);
+  req.body.forEach(async (element) => {
+    const newprod = new Product(element)
+    const prod = await newprod.save()
+    res.send(prod)
+  });
+})
+
 productRouter.post(
   '/',
   isAuth,

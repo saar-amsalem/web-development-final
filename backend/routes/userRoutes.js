@@ -3,6 +3,22 @@ import bcrypt from 'bcryptjs';
 import expressAsyncHandler from 'express-async-handler';
 import User from '../models/userModel.js';
 import { generateToken, isAdmin, isAuth } from '../utils.js';
+import "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc, Timestamp, query, where, getDoc, getDocs } from 'firebase/firestore';
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCTMsWuUGo0LMrDR0nY-TmquHoyxIA-CLM",
+  authDomain: "sharm-react.firebaseapp.com",
+  projectId: "sharm-react",
+  storageBucket: "sharm-react.appspot.com",
+  messagingSenderId: "534329914044",
+  appId: "1:534329914044:web:095f1f6d9b062a544116b9"
+};
+
+const app = initializeApp(firebaseConfig)
+const auth = getAuth(app)
 
 const userRouter = express.Router();
 
@@ -70,9 +86,16 @@ userRouter.delete(
 userRouter.post(
   '/signin',
   expressAsyncHandler(async (req, res) => {
+    try {
+      const userAuth = await signInWithEmailAndPassword(auth,req.body.email,req.body.password)
+      console.log(userAuth.user);
+    } catch (error) {
+      console.log(error);
+    }
     const user = await User.findOne({ email: req.body.email });
     if (user) {
       if (bcrypt.compareSync(req.body.password, user.password)) {
+        
         res.send({
           _id: user._id,
           name: user.name,
@@ -90,6 +113,12 @@ userRouter.post(
 userRouter.post(
   '/signup',
   expressAsyncHandler(async (req, res) => {
+    try {
+      const userAuth = await createUserWithEmailAndPassword(auth,req.body.email,req.body.password)
+      console.log(userAuth.user);
+    } catch (error) {
+      console.log(error);
+    }
     const newUser = new User({
       name: req.body.name,
       email: req.body.email,
@@ -132,5 +161,20 @@ userRouter.put(
     }
   })
 );
+
+userRouter.post(
+  "/so",
+  async (req, res) => {
+    try {
+      const auth = getAuth()
+      signOut(auth).then(()=>{
+        res.send("logged out successfully")
+      })
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
+)
 
 export default userRouter;
